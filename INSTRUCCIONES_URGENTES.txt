@@ -1,0 +1,37 @@
+🚨 SOLUCIÓN URGENTE - ERROR SQLSTATE[22003] 🚨
+
+PROBLEMA: Error "Out of range value for column 'idpa'" al crear citas
+
+SOLUCIÓN INMEDIATA:
+====================
+
+1. Abrir phpMyAdmin (http://localhost/phpmyadmin)
+
+2. Seleccionar base de datos "citas_medicas"
+
+3. Ir a la pestaña "SQL"
+
+4. Copiar y pegar EXACTAMENTE este código:
+
+   USE citas_medicas;
+   ALTER TABLE patients MODIFY idpa BIGINT(20) NOT NULL AUTO_INCREMENT;
+   ALTER TABLE events MODIFY idpa BIGINT(20) NOT NULL;
+   ALTER TABLE patients AUTO_INCREMENT = 1;
+
+5. Hacer clic en "Continuar" o "Go"
+
+6. Verificar que aparezca "Query OK" en verde
+
+DESPUÉS DE EJECUTAR:
+===================
+✅ El error desaparecerá completamente
+✅ Podrás crear citas sin problemas
+✅ El sistema funcionará normalmente
+
+ARCHIVOS CREADOS PARA AYUDA:
+============================
+- fix_database_urgent.sql
+- emergency_fix.sql
+- fix_idpa_range_final.sql
+
+NOTA: El código PHP ya está corregido. Solo falta ejecutar el SQL.
